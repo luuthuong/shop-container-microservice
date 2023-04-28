@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+option csharp_namespace = "Grpc.Basket.Services";
+
+package BasketApi;
+
+service Basket{
+	
+}
+
+service Greeter{
+	rpc SayHello(HelloRequest) returns (HelloReply);
+}
+
+message HelloRequest{
+	string name = 1;
+}
+
+message HelloReply{
+
+}
+
+message BasketRequest {
+	string id = 1;
+}
+
+
+message CustomerBasketRequest{
+	string buyerId = 1;
+	repeated BasketItemResponse items = 2;
+}
+
+message CustomerBasketResponse {
+	string buyerId = 1;
+	repeated BasketItemResponse items = 2;
+}
+
+message BasketItemResponse {
+	string id = 1;
+	int32 productid = 2;
+	string productname = 3;
+	double unitprice = 4;
+	double oldunitprice = 5;
+	int32 quantity = 6;
+	string pictureurl = 7;
+}
