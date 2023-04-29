@@ -1,4 +1,4 @@
-﻿namespace Grpc.Basket.Services
+﻿namespace Basket.Services
 {
     public class BasketService : Basket.BasketBase
     {
