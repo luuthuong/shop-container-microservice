@@ -2,7 +2,7 @@
 
 namespace Core.Specifications.Interfaces
 {
-    public interface ISpecification<T>
+    public interface ISpecification<T>: IRootSpecification
     {
         Expression<Func<T, bool>> Criteria { get; }
         List<Expression<Func<T, object>>> Includes { get;}

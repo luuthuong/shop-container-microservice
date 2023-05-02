@@ -5,25 +5,14 @@ option csharp_namespace = "Basket.Services";
 package BasketApi;
 
 service Basket{
-	
+	rpc GetBasketById(BasketRequest) returns (CustomerBasketResponse){}
+	rpc UpdateBasket(CustomerBasketRequest) returns (CustomerBasketResponse){}
 }
 
-service Greeter{
-	rpc SayHello(HelloRequest) returns (HelloReply);
-}
-
-message HelloRequest{
-	string name = 1;
-}
-
-message HelloReply{
-
-}
 
 message BasketRequest {
 	string id = 1;
 }
-
 
 message CustomerBasketRequest{
 	string buyerId = 1;
@@ -40,7 +29,5 @@ message BasketItemResponse {
 	int32 productid = 2;
 	string productname = 3;
 	double unitprice = 4;
-	double oldunitprice = 5;
 	int32 quantity = 6;
-	string pictureurl = 7;
 }

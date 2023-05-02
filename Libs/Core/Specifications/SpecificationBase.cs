@@ -52,4 +52,11 @@ public abstract class SpecificationBase<T>: ISpecification<T>
     }
 
     private Func<T, bool> CompiledExpression => _compiledExpression ??= Criteria.Compile();
+    protected void ApplyOrderBy( Expression<Func<T, object>> orderByExpression ) => OrderBy = orderByExpression;
+    protected void ApplyOrderByDescending(Expression<Func<T, object>> orderByDescendingExpression) => OrderByDescending = orderByDescendingExpression;
+    protected void ApplySorting(string sort)
+    {
+        this.ApplySorting(sort, nameof(ApplyOrderBy), nameof(ApplyOrderByDescending));
+    }
+
 }
